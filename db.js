@@ -6,7 +6,7 @@ const connectToDB = () => {
     let dbUri = '';
 
     if(NODE_ENV === 'production') dbUri = 'url to remote db';
-    else dbUri = 'mongodb://localhost:27017/adsDB';
+    else dbUri = 'mongodb://localhost:27017/noticeDB';
 
     mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
     const db = mongoose.connection;

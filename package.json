@@ -23,7 +23,10 @@
     "nodemon": "^1.19.4"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build": "react-scripts build",
+    "test": "set NODE_ENV=test&& mocha \"./{,!(node_modules|client)/**/}*.test.js\"",
+    "test:watch": "onchange \"./**/*.js\" -i -k -- yarn test"
   },
   "eslintConfig": {
     "extends": [
