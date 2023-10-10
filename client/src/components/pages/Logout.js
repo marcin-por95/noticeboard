@@ -3,11 +3,9 @@ import { logOut } from "../../redux/usersRedux";
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
 import { NavDropdown } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     //eslint-disable-next-line
     const [isAuthenticated, setIsAuthenticated] = useState(true);
 
@@ -15,18 +13,19 @@ const Logout = () => {
         try {
             const response = await fetch(`${API_URL}/auth/logout`, {
                 method: 'DELETE',
-                credentials: 'include',
+                credentials: 'include', // Include cookies in the request
             });
 
             if (response.status === 200) {
-                setIsAuthenticated(false);
+                setIsAuthenticated(false); // Update state when logout is successful
                 dispatch(logOut());
-                navigate('/');
                 window.location.reload();
             } else {
+                // Handle logout failure
             }
         } catch (error) {
             console.error('Error during logout:', error);
+            // Handle errors if the request fails
         }
     };
 

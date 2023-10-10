@@ -33,7 +33,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
     try {
 
-        const { login, password, phoneNumber, avatar } = req.body;
+        const { login, password, avatar } = req.body;
         if (login && typeof login === 'string' && password && typeof password === 'string') {
             const user = await User.findOne({ login });
             if (!user) {
@@ -43,6 +43,7 @@ exports.login = async (req, res) => {
                 if (bcrypt.compareSync(password, user.password)) {
                     req.session.login = user.login;
                     res.status(200).send({ message: 'User logged ' + user.login });
+                    console.log('User logged in:', user.login);
                 }
                 else {
                     res.status(400).send({ message: 'Login or password are incorrect'});
@@ -59,9 +60,22 @@ exports.login = async (req, res) => {
 
 exports.getUser = async (req, res) => {
     if (req.session.login) {
-        res.send({ login: req.session.login });
-    }
-    else {
+        try {
+            // Find the user in the database based on their login
+            const user = await User.findOne({ login: req.session.login });
+
+            if (user) {
+                // Include the _id field in the response
+                const userData = { login: user.login, _id: user._id };
+                res.send(userData);
+            } else {
+                res.status(404).send({ message: 'User not found' });
+            }
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            res.status(500).send({ message: 'Internal Server Error' });
+        }
+    }else {
         res.status(401).send({ message: 'You are not authorized '});
     }
 };

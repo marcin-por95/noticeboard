@@ -1,10 +1,10 @@
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-
 import { API_URL } from '../../config';
 import { useSelector } from 'react-redux';
 import Logout from '../pages/Logout';
+
 
 const NavBar = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);

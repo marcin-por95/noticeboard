@@ -9,7 +9,8 @@ import Spinner from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
 
 const AddForm = ({ user }) => {
-    console.log('User prop:', user);
+    // CHECK THAT USER CORRECTLY PASSING
+    //console.log('User prop:', user);
 
     const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ const AddForm = ({ user }) => {
     const [image, setImage] = useState(null);
     const [status, setStatus] = useState(null);
 
+    console.log('title,content,price,location', title,content,price,location,user._id,image);
     const handleSubmit = e => {
         e.preventDefault();
         console.log('Sending user._id to server:', user._id);
@@ -30,8 +32,11 @@ const AddForm = ({ user }) => {
         fd.append('price', price);
         fd.append('location', location);
         fd.append('image', image);
-        fd.append('user', user._id);
+        fd.append('user', user._id); // Assuming user has an "_id" field
         fd.append('publishDate', publishDate);
+
+        console.log('fd:  ',fd);
+        console.log('User ID:', user._id);
 
         const option = {
             method: 'POST',

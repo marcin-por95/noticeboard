@@ -1,11 +1,12 @@
-
+//selectors
 export const getAllUsers = ({ users }) => users;
 
+// actions
 const createActionName = actionName => `app/users/${actionName}`;
 const LOG_IN = createActionName('LOG_IN');
 const LOG_OUT = createActionName('LOG_OUT');
 
-
+// action creators
 export const logIn = payload => ({ type: LOG_IN, payload });
 export const logOut = () => ({ type: LOG_OUT });
 
