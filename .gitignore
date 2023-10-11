@@ -6,13 +6,15 @@
 .pnp.js
 /.idea
 .idea
+.env
 
 # testing
 /coverage
 
 # production
 /build
-
+.idea
+/.idea
 # misc
 .DS_Store
 .env.local

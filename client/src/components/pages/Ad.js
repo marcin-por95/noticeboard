@@ -15,7 +15,7 @@ const Ad = ({ title, location, image, _id }) => {
                         <b>Location: </b>{location}
                     </Card.Text>
                     <Link to={"/ad/" + _id}>
-                        <Button variant="success">Read more</Button>
+                        <Button variant="warning">Read more</Button>
                     </Link>
                 </Card.Body>
                 <Card.Img

@@ -9,10 +9,9 @@ const Login = () => {
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const [status, setStatus] = useState(null); // null, 'loading', 'success', 'serverError', 'clientError'
+    const [status, setStatus] = useState(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     //eslint-disable-next-line
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -36,7 +35,7 @@ const Login = () => {
                     dispatch(logIn({ login }));
                     navigate('/');
                     setIsAuthenticated(true);
-                    window.location.reload(); // Reload the page
+                    window.location.reload();
                 }
                 else if (res.status === 400) {
                     setStatus('clientError');

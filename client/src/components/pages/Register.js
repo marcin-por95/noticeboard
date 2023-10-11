@@ -102,7 +102,7 @@ const Register = () => {
                 <Form.Control type="file" onChange={e => setAvatar(e.target.files[0])}/>
             </Form.Group>
 
-            <Button variant="success" type="submit">
+            <Button variant="warning" type="submit">
                 Sign up
             </Button>
         </Form>

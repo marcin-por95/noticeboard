@@ -58,7 +58,7 @@ const EditForm = ({ action, user, ...props }) => {
                         onChange={e => setImage(e.target.files[0])} />
                 </Form.Group>
 
-                <Button variant="warning" type="submit">Submit</Button>
+                <Button variant="" type="submit">Submit</Button>
             </Form>
         </div>
     )

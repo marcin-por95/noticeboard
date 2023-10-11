@@ -68,9 +68,9 @@ const SingleAd = () => {
                 </Col>
                 {!user && (<div>
                     <Link to={`/ad/edit/${id}`}>
-                        <Button variant="outline-success m-1">Edit ad</Button>
+                        <Button variant="warning m-1">Edit ad</Button>
                     </Link>
-                    <Button onClick={handleShow} variant="outline-danger m-1">Delete</Button>
+                    <Button onClick={handleShow} variant="warning m-1">Delete</Button>
                 </div>)}
             </div>
 

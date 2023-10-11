@@ -52,7 +52,7 @@ const Home = props => {
                 <div className="d-flex justify-content-between">
                     <Search />
                     <Link key={props.id} to={"/ad/add"}>
-                        <Button variant="success">Add advert</Button>
+                        <Button variant="warning">Add advert</Button>
                     </Link>
 
                 </div>
@@ -60,7 +60,7 @@ const Home = props => {
 
             {!pending && (
                 <div>
-                    <h1>All posts</h1>
+                    <h1>find what you need </h1>
                     <AllAds />
                 </div>
             )}

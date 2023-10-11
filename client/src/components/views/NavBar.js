@@ -5,17 +5,15 @@ import { API_URL } from '../../config';
 import { useSelector } from 'react-redux';
 import Logout from '../pages/Logout';
 
-
 const NavBar = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const user = useSelector(state => state.user); // Get user data from Redux store
+    const user = useSelector(state => state.user);
 
     useEffect(() => {
-        // Make an API request to check the user's authentication status
         const checkAuthStatus = async () => {
             try {
                 const response = await fetch(`${API_URL}/auth/user`, {
-                    credentials: 'include', // Include cookies in the request
+                    credentials: 'include',
                 });
 
                 if (response.status === 200) {
@@ -30,21 +28,22 @@ const NavBar = () => {
 
         checkAuthStatus();
     }, [user]);
+
     return (
-        <div className="">
-            <Navbar
-                bg="secondary"
-                variant="dark"
-                expand="sm"
-                className="justify-content-between mt-4 mb-4 rounded px-3"
-            >
-                <Navbar.Brand>NoticeBoard.app</Navbar.Brand>
-                <Nav>
-                    <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-                </Nav>
+        <Navbar
+            style={{ backgroundColor: 'orange' }}
+            variant="dark"
+            expand="sm"
+            className="justify-content-between mt-2 mb-1 rounded px-5"
+        >
+            <Nav>
+                <Nav.Link as={NavLink} to="/">HOME</Nav.Link>
+            </Nav>
+            <Navbar.Toggle aria-controls="navbar-nav" />
+            <Navbar.Collapse id="navbar-nav">
                 <Nav>
                     {isAuthenticated ? (
-                        <NavDropdown title={<> My Account</>} id="basic-nav-dropdown">
+                        <NavDropdown title="My Account" id="basic-nav-dropdown">
                             <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <Logout />
@@ -56,8 +55,8 @@ const NavBar = () => {
                         </>
                     )}
                 </Nav>
-            </Navbar>
-        </div>
+            </Navbar.Collapse>
+        </Navbar>
     );
 };
 

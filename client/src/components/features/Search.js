@@ -17,7 +17,7 @@ const Search = () => {
                                   value={searchPhrase}
                                   onChange={(e) => setSearchPhrase(e.target.value)}
                     />
-                    <Button variant="success" onClick={handleSearch}>Search</Button>
+                    <Button variant="warning" onClick={handleSearch}>Search</Button>
                 </InputGroup>
             </div>
         </div>
