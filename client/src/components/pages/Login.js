@@ -12,7 +12,7 @@ const Login = () => {
     const [status, setStatus] = useState(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    //eslint-disable-next-line
+
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handleSubmit = e => {
@@ -37,6 +37,7 @@ const Login = () => {
                     setIsAuthenticated(true);
                     window.location.reload();
                 }
+
                 else if (res.status === 400) {
                     setStatus('clientError');
                 }
