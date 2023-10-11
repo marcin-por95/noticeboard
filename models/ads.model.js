@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
+const fuzzySearch = require('mongoose-fuzzy-searching');
 
 const adsSchema = new mongoose.Schema({
     title: { type: String, required: true },
@@ -10,5 +11,8 @@ const adsSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     image: { type: String, required: false }
 });
+
+adsSchema.plugin(fuzzySearch, { fields: [ 'title' ] });
+
 
 module.exports = mongoose.model('Ads', adsSchema);

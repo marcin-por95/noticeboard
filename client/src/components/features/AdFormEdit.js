@@ -19,6 +19,7 @@ const AdFormEdit = ({user}) => {
 
     useEffect(() => {
         return () => {
+            // Clear status when component unmounts
             setStatus('');
         };
     }, []);
@@ -45,7 +46,7 @@ const AdFormEdit = ({user}) => {
                 return res.json();
             })
             .then((data) => {
-                console.log('Response data:', data);
+                console.log('Response data:', data); // Log the response data
                 if (data.message === 'Ad updated') {
                     setStatus('success');
                     fetchAds()(dispatch);

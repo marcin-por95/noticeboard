@@ -131,7 +131,7 @@ const AddForm = ({ user }) => {
                         onChange={e => setImage(e.target.files[0])}
                     />
                 </Form.Group>
-                <Button variant="success" type="submit">
+                <Button variant="warning" type="submit">
                     Submit
                 </Button>
 
