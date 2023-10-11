@@ -1,7 +1,7 @@
 const Ads = require('../models/ads.model');
 const getImageFileType = require('../utils/getImageFileType');
 const fs = require('fs');
-const User = require('../models/user.model');
+const User = require('./models/user.model');
 
 // Get all ads
 exports.getAll = async (req, res) => {
