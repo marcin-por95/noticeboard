@@ -1,4 +1,3 @@
-const User = require('./models/user.model');
 const mongoose = require('mongoose');
 const fuzzySearch = require('mongoose-fuzzy-searching');
 
