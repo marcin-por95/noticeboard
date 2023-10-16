@@ -13,7 +13,6 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -34,7 +33,6 @@ const Login = () => {
                     setStatus('success');
                     dispatch(logIn({ login }));
                     navigate('/');
-                    setIsAuthenticated(true);
                     window.location.reload();
                 }
 
